@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI StudyMate</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+    <h2>📚 AI StudyMate</h2>
+
+    <!-- Custom Upload -->
+
+    <label for="pdfFile" class="upload-btn">
+        📂 Choose PDF
+    </label>
+
+    <input
+        type="file"
+        id="pdfFile"
+        accept=".pdf"
+        hidden
+    >
+
+    <span id="fileName">No file selected</span>
+
+    <button id="themeToggle" onclick="toggleTheme()">
+        🌙 Dark Mode
+    </button>
+
+    <button onclick="uploadPDF()">
+        📄 Upload PDF
+    </button>
+
+    <button onclick="getSummary()">
+        📋 Summary
+    </button>
+
+    <button onclick="generateMCQ()">
+        ❓ MCQs
+    </button>
+
+    <button onclick="generateFlashcards()">
+        🃏 Flashcards
+    </button>
+
+    <button onclick="generateQuiz()">
+        📝 Quiz
+    </button>
+
+    <div class="footer">
+        Version 1.0<br>
+        Made with ❤️
+    </div>
+
+
+</div>
+
+   <!--  <div class="logo">
+    <h2>📚 AI StudyMate</h2>
+    <p>Your AI Learning Partner</p>
+
+    <h4 class="menu-title">FEATURES</h4>
+
+
+        <input type="file" id="pdfFile">
+
+        <button id="themeToggle" onclick="toggleTheme()"> 🌙 Dark Mode</button>
+
+        <button class="nav-btn">📄 Upload PDF</button>
+
+        <button class="nav-btn">📋 Summary</button>
+
+        <button class="nav-btn">❓ MCQs</button>
+
+        <button class="nav-btn">🃏 Flashcards</button>
+
+       <button class="nav-btn">📝 Quiz</button>
+        
+
+    </div>-->
+
+
+
+
+    <!-- Main Content -->
+
+    <div class="main">
+
+        <h1>AI Study Assistant</h1>
+
+        <textarea
+            id="question"
+            placeholder="Ask any study question..."
+        ></textarea>
+
+        <button onclick="askAI()">
+            🤖 Ask AI
+        </button>
+
+        <!-- Loading -->
+
+        <div id="loading">
+            🤖 AI is thinking...
+        </div>
+
+        <!-- AI Response Card -->
+
+        <div class="section">
+
+            <h2>💬 AI Response</h2>
+
+            <div id="response"></div>
+
+            <div class="button-group">
+
+                <button onclick="copyAnswer()">
+                    📋 Copy Answer
+                </button>
+
+                <button onclick="downloadNotes()">
+                    📥 Download Notes as PDF
+                </button>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <!-- Quiz Card -->
+
+        <div class="section">
+
+            <h2>📝 AI Quiz Generator</h2>
+
+            <p>
+                Generate multiple-choice questions from the uploaded PDF.
+            </p>
+
+            <button onclick="generateQuiz()">
+                📝 Generate Quiz
+            </button>
+
+            <div id="quizOutput"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

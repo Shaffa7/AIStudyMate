@@ -1,0 +1,504 @@
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#eef2f7;
+    transition:0.4s;
+}
+
+.sidebar,
+.main,
+.section,
+textarea,
+button,
+#response,
+#quizOutput{
+
+    transition:.4s;
+
+}
+
+/* Layout */
+
+.container{
+    display:flex;
+    width:100%;
+    min-height:100vh;
+}
+
+
+/* ===========================
+   SIDEBAR
+=========================== */
+
+.sidebar{
+
+    width:260px;
+
+    min-width:260px;
+
+    background:#203354;
+
+    color:white;
+
+    padding:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:100vh;
+
+    box-sizing:border-box;
+
+}
+
+/* Logo */
+
+.sidebar h2{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    font-size:32px;
+
+}
+
+/* Upload Button */
+
+.upload-btn{
+
+    display:block;
+
+    background:#16a34a;
+
+    color:white;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    margin-bottom:10px;
+
+    transition:.3s;
+
+}
+
+.upload-btn:hover{
+
+    background:#15803d;
+
+}
+
+/* File Name */
+
+#fileName{
+
+    text-align:center;
+
+    font-size:14px;
+
+    color:#ddd;
+
+    margin-bottom:20px;
+
+}
+
+/* Buttons */
+
+.sidebar button{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-bottom:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#365a96;
+
+    color:white;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    text-align:left;
+
+    padding-left:20px;
+
+    transition:.3s;
+
+}
+
+.sidebar button:hover{
+
+    background:#4d73b3;
+
+    transform:translateX(5px);
+
+}
+
+/* Theme Button */
+
+#themeToggle{
+
+    background:#f59e0b;
+
+}
+
+#themeToggle:hover{
+
+    background:#d97706;
+
+}
+/* Main */
+
+.main{
+
+    flex:1;
+
+    padding:20px;
+
+    overflow-y:auto;
+
+}
+
+.main h1{
+    margin-bottom:20px;
+    color:#203354;
+}
+
+textarea{
+    width:100%;
+    height:150px;
+    font-size:18px;
+    padding:15px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    resize:none;
+    outline:none;
+}
+
+/* Main Buttons */
+
+.main button{
+    margin-top:20px;
+    padding:15px;
+    background:#203354;
+    color:white;
+    border:none;
+    font-size:18px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.main button{
+
+    margin-top:20px;
+
+    padding:15px 30px;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    background:#2563eb;
+
+}
+
+/* Loading */
+
+#loading{
+    display:none;
+    margin-top:20px;
+    padding:15px;
+    background:#fff3cd;
+    color:#856404;
+    border-radius:8px;
+    font-weight:bold;
+    text-align:center;
+    animation:blink 1s infinite;
+}
+
+@keyframes blink{
+    0%{opacity:1;}
+    50%{opacity:0.4;}
+    100%{opacity:1;}
+}
+
+/* Section Cards */
+
+.section{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+
+    margin-top:35px;
+
+}
+
+
+.section h2{
+    color:#203354;
+    margin-bottom:15px;
+}
+
+.section p{
+    color:#555;
+}
+
+/* Button Group */
+
+.button-group{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.button-group button{
+    flex:1;
+    min-width:220px;
+}
+
+/* Response & Quiz Output */
+
+#response,
+#quizOutput{
+    margin-top:20px;
+    padding:25px;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 0 10px #ccc;
+    line-height:1.8;
+    font-size:17px;
+    overflow-x:auto;
+    min-height:120px;
+}
+
+/* Markdown Styling */
+
+#response h1,
+#response h2,
+#response h3,
+#quizOutput h1,
+#quizOutput h2,
+#quizOutput h3{
+    color:#1d3557;
+    margin-top:20px;
+}
+
+#response p,
+#quizOutput p{
+    margin:12px 0;
+}
+
+#response ul,
+#quizOutput ul{
+    padding-left:25px;
+}
+
+#response li,
+#quizOutput li{
+    margin-bottom:8px;
+}
+
+#response code,
+#quizOutput code{
+    background:#f4f4f4;
+    padding:2px 5px;
+    border-radius:4px;
+}
+
+#response strong,
+#quizOutput strong{
+    color:#1d3557;
+}
+
+/* Divider */
+
+hr{
+    margin:40px 0;
+    border:none;
+    border-top:2px solid #ddd;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .container{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+        height:auto;
+    }
+
+    .button-group{
+        flex-direction:column;
+    }
+
+    .button-group button{
+        width:100%;
+    }
+
+    .main{
+        padding:20px;
+    }
+
+    textarea{
+
+    width:100%;
+
+    height:180px;
+
+    padding:20px;
+
+    border-radius:16px;
+
+    font-size:18px;
+
+    border:1px solid #d8d8d8;
+
+}
+}
+
+/* ===========================
+   DARK MODE
+=========================== */
+
+body.dark-mode{
+    background:#121212;
+    color:#ffffff;
+}
+
+body.dark-mode .sidebar{
+    background:#111827;
+}
+
+body.dark-mode .main{
+    background:#181818;
+}
+
+body.dark-mode .main h1{
+
+    font-size:48px;
+
+    font-weight:bold;
+
+    margin-bottom:30px;
+
+}
+body.dark-mode .section h2{
+    color:#ffffff;
+}
+
+body.dark-mode textarea{
+    background:#2a2a2a;
+    color:white;
+    border:1px solid #555;
+}
+
+body.dark-mode .section{
+    background:#242424;
+    color:white;
+}
+
+body.dark-mode #response,
+body.dark-mode #quizOutput{
+    background:#1e1e1e;
+    color:white;
+    box-shadow:none;
+}
+
+body.dark-mode button{
+    background:#3b82f6;
+}
+
+body.dark-mode button:hover{
+    background:#2563eb;
+}
+
+body.dark-mode hr{
+    border-top:2px solid #444;
+}
+
+body.dark-mode #loading{
+    background:#3d3d00;
+    color:#ffd54f;
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.logo p{
+    color:#cfd8dc;
+    font-size:14px;
+}
+
+.menu-title{
+    color:#9fb4d1;
+    margin:15px 0;
+    letter-spacing:1px;
+}
+
+.nav-btn{
+    width:100%;
+    padding:14px;
+    margin:8px 0;
+    border:none;
+    border-radius:12px;
+    background:#365a96;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.nav-btn:hover{
+    transform:translateX(8px);
+    background:#4d73b3;
+}
+
+.main button{
+
+    background:#2563eb;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+}
+.footer{
+
+    margin-top:auto;
+
+    text-align:center;
+
+    color:#cfd8dc;
+
+    font-size:13px;
+
+}
