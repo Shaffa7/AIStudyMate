@@ -228,9 +228,14 @@ def download_pdf(data: Question):
 
     doc.build(story)
 
-    return {
-        "message": "PDF created successfully!",
-        "file": filename,
+    return FileResponse(
+        filename,
+        media_type="application/pdf",
+        filename="Ai_study_notes.pdf"
+    )
+    return{
+        "message":"PDF created sucessfully",
+        "file":filename
     }
 
 

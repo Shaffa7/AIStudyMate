@@ -232,51 +232,54 @@ function copyAnswer() {
 // ----------------------------
 
 async function downloadNotes() {
-
     const notes = document.getElementById("response").innerText;
 
     if (notes.trim() === "") {
-
         alert("Nothing to download.");
-
         return;
-
     }
 
     document.getElementById("loading").style.display = "block";
 
     try {
+        const response = await fetch(
+            "https://aistudymate-qxq9.onrender.com/download",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    question: notes
+                })
+            }
+        );
 
-        const response = await fetch("https://aistudymate-qxq9.onrender.com/download", {
+        if (!response.ok) {
+            throw new Error("PDF generation failed");
+        }
 
-            method: "POST",
+        const blob = await response.blob();
 
-            headers: {
-                "Content-Type": "application/json"
-            },
+        const url = window.URL.createObjectURL(blob);
 
-            body: JSON.stringify({
-                question: notes
-            })
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "AI_StudyMate_Notes.pdf";
 
-        });
+        document.body.appendChild(a);
+        a.click();
 
-        const data = await response.json();
-
-        alert(data.message);
+        a.remove();
+        window.URL.revokeObjectURL(url);
 
     } catch (error) {
-
+        console.error(error);
         alert("Unable to create PDF.");
-
     } finally {
-
         document.getElementById("loading").style.display = "none";
-
     }
-
 }
-
 // ----------------------------
 // Quiz Generator
 // ----------------------------
