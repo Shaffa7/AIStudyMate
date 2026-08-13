@@ -369,3 +369,45 @@ document
     }
 
 });
+
+function downloadPDF() {
+    try {
+        const { jsPDF } = window.jspdf;
+
+        const pdf = new jsPDF();
+
+        pdf.setFontSize(18);
+        pdf.text("AI StudyMate - Study Notes", 20, 20);
+
+        pdf.setFontSize(11);
+
+        const responseElement = document.getElementById("response");
+
+        if (!responseElement || !responseElement.innerText.trim()) {
+            alert("Please generate some notes or an AI response first.");
+            return;
+        }
+
+        const text = responseElement.innerText;
+
+        const lines = pdf.splitTextToSize(text, 170);
+
+        let y = 35;
+
+        lines.forEach((line) => {
+            if (y > 280) {
+                pdf.addPage();
+                y = 20;
+            }
+
+            pdf.text(line, 20, y);
+            y += 7;
+        });
+
+        pdf.save("AI_StudyMate_Notes.pdf");
+
+    } catch (error) {
+        console.error("PDF Error:", error);
+        alert("Unable to create PDF. Please try again.");
+    }
+}
