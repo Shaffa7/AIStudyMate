@@ -214,7 +214,7 @@ Study Material:
 # -----------------------------
 
 @app.post("/download")
-def download_pdf(data: Question):
+def downloadNotes(data: Question):
     os.makedirs("downloads", exist_ok=True)
     filename = "downloads/AI_StudyMate_Notes.pdf"
 
