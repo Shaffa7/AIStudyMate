@@ -16,7 +16,7 @@ async function askAI() {
 
     try {
 
-       const response = await fetch(" https://aistudymate-qxq9.onrender.com", {
+       const response = await fetch(" https://aistudymate-qxq9.onrender.com/chat", {
 
     method: "POST",
 
@@ -92,7 +92,7 @@ async function uploadPDF() {
 
     try {
 
-        const response = await fetch("http://127.0.0.1:8000/upload", {
+        const response = await fetch("https://aistudymate-qxq9.onrender.com/upload", {
 
             method: "POST",
 
@@ -128,7 +128,7 @@ async function getSummary() {
 
     try {
 
-        const response = await fetch("http://127.0.0.1:8000/summary");
+        const response = await fetch("https://aistudymate-qxq9.onrender.com/summary");
 
         const data = await response.json();
 
@@ -157,7 +157,7 @@ async function generateMCQ() {
 
     try {
 
-        const response = await fetch("http://127.0.0.1:8000/mcq");
+        const response = await fetch("https://aistudymate-qxq9.onrender.com/mcq");
 
         const data = await response.json();
 
@@ -186,7 +186,7 @@ async function generateFlashcards() {
 
     try {
 
-        const response = await fetch("http://127.0.0.1:8000/flashcards");
+        const response = await fetch("https://aistudymate-qxq9.onrender.com/flashcards");
 
         const data = await response.json();
 
@@ -247,7 +247,7 @@ async function downloadNotes() {
 
     try {
 
-        const response = await fetch("http://127.0.0.1:8000/download", {
+        const response = await fetch("https://aistudymate-qxq9.onrender.com/download", {
 
             method: "POST",
 
@@ -289,7 +289,7 @@ async function generateQuiz() {
 
     try {
 
-        const response = await fetch("http://127.0.0.1:8000/quiz");
+        const response = await fetch("https://aistudymate-qxq9.onrender.com/quiz");
 
         const data = await response.json();
 
